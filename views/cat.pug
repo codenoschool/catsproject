@@ -6,4 +6,4 @@ block content
     p= cat.age
     a(href="/edit/" + cat._id) Edit
     br
-    a(href="/delete/" + cat._id) Delete
+    a.delete-article(data-id=cat._id, href="") Delete

@@ -21,6 +21,8 @@ db.once('open', function(){
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
@@ -116,6 +118,24 @@ app.get('/delete/:id', function(req, res){
             res.redirect('/');
         }
     });
+});
+
+app.delete('/delete/:id', function(req, res){
+	let query = {_id:req.params.id};
+
+	Cat.findById(req.params.id, function(err, cat){
+		if(err){
+			console.log(err);
+			return;
+		} else{
+			Cat.remove(query, function(err){
+				if(err){
+					console.log(err);
+				}
+				res.send('Success');
+			});
+		}
+	});
 });
 
 
