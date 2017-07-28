@@ -121,21 +121,21 @@ app.get('/delete/:id', function(req, res){
 });
 
 app.delete('/delete/:id', function(req, res){
-	let query = {_id:req.params.id};
+    let query = {_id:req.params.id};
 
-	Cat.findById(req.params.id, function(err, cat){
-		if(err){
-			console.log(err);
-			return;
-		} else{
-			Cat.remove(query, function(err){
-				if(err){
-					console.log(err);
-				}
-				res.send('Success');
-			});
-		}
-	});
+    Cat.findById(req.params.id, function(err, cat){
+        if(err){
+            console.log(err);
+            return;
+        } else{
+            Cat.remove(query, function(err){
+                if(err){
+                    console.log(err);
+                }
+                res.send('Success');
+            });
+        }
+    });
 });
 
 
