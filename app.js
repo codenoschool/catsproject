@@ -44,6 +44,10 @@ app.get('/', function(req, res){
     })
 });
 
+app.get('/indent', function(req, res){
+    res.send('Just testing around.');
+});
+
 app.get('/cat/:id', function(req, res){
     Cat.findById(req.params.id, function(err, cat){
         if(err){
