@@ -1,0 +1,10 @@
+extends layout
+block title
+    title Home
+block content
+    h1 Welcome!
+    p These are our cats.
+    ul
+        each cat in cats
+            li
+                a(href="/cat/" + cat._id)= cat.name

@@ -1,0 +1,9 @@
+extends layout
+block title
+    title Cat
+block content
+    h1= cat.name
+    p= cat.age
+    a(href="/edit/" + cat._id) Edit
+    br
+    a(href="/delete/" + cat._id) Delete
